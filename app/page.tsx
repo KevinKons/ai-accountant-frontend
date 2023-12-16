@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import SendMessageBox from './components/SendMessageBox'
 import ChatHeader from './components/ChatHeader'
 import ChatMessage, { MessageType } from './components/ChatMessage'

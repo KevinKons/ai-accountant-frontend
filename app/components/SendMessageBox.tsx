@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react"
+import { createMessage } from "../actions";
 
 export default function SendMessageBox() {
 
@@ -7,6 +8,7 @@ export default function SendMessageBox() {
 
   const sendMessage = () => {
     console.log("sendMessage")
+    createMessage()
   }
 
   return (
