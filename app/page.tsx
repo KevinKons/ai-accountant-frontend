@@ -1,7 +1,6 @@
 import SendMessageBox from './components/SendMessageBox'
 import ChatHeader from './components/ChatHeader'
 import ChatMessage, { MessageType } from './components/ChatMessage'
-import { useEffect, useState } from 'react'
 import { connectToMongoDB } from './service/mongoose'
 import Question, { IQuestion } from './models/Question'
 
@@ -20,7 +19,7 @@ export default async function Home() {
         <div id="messages" className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
           {
             messages && messages.length > 0 && messages.map((message, index) => (
-              <div>
+              <div key={index}>
                 <ChatMessage messageType={MessageType.USER_MESSAGE} message={message.question} />
                 <ChatMessage messageType={MessageType.BOT_MESSAGE} message={message.answer} />
               </div>
