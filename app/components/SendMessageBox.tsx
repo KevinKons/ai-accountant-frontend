@@ -1,13 +1,17 @@
 "use client";
 
 import { sendMessage } from "../actions";
+import { useRef } from "react";
 
 export default function SendMessageBox() {
+  const ref = useRef<HTMLFormElement>(null)
 
   return (
     <form
+      ref={ref}
       action={async (formData: FormData) => {
         await sendMessage(formData)
+        ref.current?.reset()
       }}
       className="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0"
     >
