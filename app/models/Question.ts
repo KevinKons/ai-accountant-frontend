@@ -7,13 +7,13 @@ export interface IQuestion extends Document {
   // company: mongoose.Types.ObjectId | string;
 }
 
-const QuestionSchema = new Schema<IQuestion>({
+const questionSchema = new Schema<IQuestion>({
   question: { type: String, required: true },
   answer: { type: String },
-  // date: { type: Date, required: true },
+  date: { type: Date, required: true },
   // company: { type: Schema.Types.ObjectId, ref: 'Company', required: true },
 });
 
-const Question = mongoose.model<IQuestion>('Question', QuestionSchema);
+const Question = mongoose.models.question || mongoose.model<IQuestion>('question', questionSchema);
 
 export default Question;
